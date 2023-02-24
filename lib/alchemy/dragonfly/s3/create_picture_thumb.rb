@@ -9,6 +9,10 @@ module Alchemy
           # to prevent db race conditions
           thumb = nil
           if variant.picture.valid?
+            puts "THUMB SIG: #{signature}"
+            sig_exist = Alchemy::PictureThumb.where(signature: signature).exist?
+            puts "THUMB EXIST: #{sig_exist}"
+
             thumb = Alchemy::PictureThumb.create!(
               picture: variant.picture,
               signature: signature,
