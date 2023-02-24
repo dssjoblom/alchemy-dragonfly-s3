@@ -10,7 +10,7 @@ module Alchemy
           thumb = nil
           if variant.picture.valid?
             puts "THUMB SIG: #{signature}"
-            sig_exist = Alchemy::PictureThumb.where(signature: signature).exist?
+            sig_exist = Alchemy::PictureThumb.where(signature: signature).exists?
             puts "THUMB EXIST: #{sig_exist}"
 
             thumb = Alchemy::PictureThumb.create!(
